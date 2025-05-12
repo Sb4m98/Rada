@@ -1,0 +1,62 @@
+[
+  {
+    "event_id": "d6d20d61-418b-48db-8475-b4c0e135a169",
+    "profile": {
+      "age": 42,
+      "risk_profile": null,
+      "preferred_style": null
+    },
+    "chosen": "formal",
+    "candidates": [
+      "formal",
+      "colloquial",
+      "bullet"
+    ],
+    "reward": 1.0
+  },
+  {
+    "event_id": "fa19af8f-d935-41f1-b6a5-18db61113b03",
+    "profile": {
+      "age": 42,
+      "risk_profile": null,
+      "preferred_style": null
+    },
+    "chosen": "formal",
+    "candidates": [
+      "formal",
+      "colloquial",
+      "bullet"
+    ],
+    "reward": 0.0
+  },
+  {
+    "event_id": "b8fa1443-b212-4f43-b043-f30fcd08a7ba",
+    "profile": {
+      "age": 42,
+      "risk_profile": null,
+      "preferred_style": null
+    },
+    "chosen": "formal",
+    "candidates": [
+      "formal",
+      "colloquial",
+      "bullet"
+    ],
+    "reward": 0.0
+  },
+  {
+    "event_id": "cd824f69-7d1d-4191-8b78-3588a691844c",
+    "profile": {
+      "age": 42,
+      "risk_profile": null,
+      "preferred_style": null
+    },
+    "chosen": "formal",
+    "candidates": [
+      "formal",
+      "colloquial",
+      "bullet"
+    ],
+    "reward": null
+  }
+]

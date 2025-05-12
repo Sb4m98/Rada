@@ -1,0 +1,28 @@
+{
+  "user_id": "user3",
+  "name": "Alex",
+  "surname": "Johnson",
+  "age": 35,
+  "marital_status": "single",
+  "children": 0,
+  "income": 32000,
+  "profession": "software engineer",
+  "product": {
+    "name": "DriveSafe Plus",
+    "start_year": 2023,
+    "premium_type": "annual",
+    "premium_amount": 850,
+    "duration_years": 1
+  },
+  "objectives": ["vehicle protection", "legal assistance"],
+  "engagement": {
+    "app_usage_freq": "monthly",
+    "prefers_chat": true
+  },
+  "experience": {
+    "years_with_insurance": 3,
+    "risk_profile": "medium"
+  },
+  "preferred_style": "colloquial",
+  "recent_inquiry_type": "claim status"
+}

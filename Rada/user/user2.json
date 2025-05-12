@@ -1,0 +1,28 @@
+{
+  "user_id": "user2",
+  "name": "Giulia",
+  "surname":"Bianchi",
+  "age": 29,
+  "marital_status": "single",
+  "children": 0,
+  "income": 24000,
+  "profession": "graphic designer",
+  "product": {
+    "name": "Futuro Dedicato",
+    "start_year": 2024,
+    "premium_type": "monthly",
+    "premium_amount": 300,
+    "duration_years": 15
+  },
+  "objectives": ["house saving", "capital accumulation"],
+  "engagement": {
+    "app_usage_freq": "rare",
+    "prefers_chat": true
+  },
+  "experience": {
+    "years_with_insurance": 1,
+    "risk_profile": "low"
+  },
+  "preferred_style": "bullet",
+  "recent_inquiry_type": "riscatto totale"
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RADA - Insurance Enhanced Learning Intelligent Assistant</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-3 col-lg-2 sidebar">
+        <div class="sidebar-container p-3">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+              <a class="nav-link active" href="#" id="home-tab">
+                <i class="fas fa-house icon me-2"></i>
+                Home
+              </a>
+            </li>
+			<li class="nav-item mb-2">
+			  <a class="nav-link" href="#" id="profile-tab">
+				<i class="fas fa-user icon me-2"></i>
+				Profile
+			  </a>
+			  </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="#" id="upload-tab">
+                <i class="fas fa-folder icon me-2"></i>
+                Upload Files
+              </a>
+            </li>
+			<li class="nav-item mb-2">
+			  <a class="nav-link" href="#" id="assistant-tab">
+				<i class="fas fa-robot icon me-2"></i>
+				Assistant
+			  </a>
+			</li>
+            <li class="nav-item mb-2">
+              <a class="nav-link" href="#" id="process-tab">
+                <i class="fas fa-project-diagram icon me-2"></i>
+                Process Procedure
+              </a>
+            </li>
+        
+          </ul>
+          <hr>
+          <div class="mt-4">
+            <h6>About</h6>
+            <p class="small">
+              This app allows you to analyze PDF documents and chat with their contents using artificial intelligence.
+            </p>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 col-lg-10 px-md-4">
+        <!-- Toggle sidebar button (mobile) -->
+        <button id="toggle-sidebar" class="btn btn-primary d-md-none my-2">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Home Section -->
+        <div id="home-content" class="content-section active pt-4">
+          <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+              <rect x="10" y="10" width="50" height="50" transform="rotate(45 35 35)" fill="#7C3AED"/>
+              <text x="22" y="50" font-family="Arial" font-weight="bold" font-size="36" fill="white">R</text>
+              <text x="70" y="50" font-family="Arial" font-weight="bold" font-size="36" fill="#7C3AED">ada</text>
+              <path d="M150 25 L160 25 L160 35" stroke="#7C3AED" stroke-width="2" fill="none"/>
+              <circle cx="160" cy="35" r="2" fill="#7C3AED"/>
+            </svg>
+          </div>
+          <h2 class="subtitle">Document Enhanced Learning Intelligent Assistant</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="feature-card">
+                <h3>📄 Document Analysis</h3>
+                <p>Upload your PDFs and get detailed insurance content analysis, including statistics on keywords and vocabulary density.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-card">
+                <h3>💬 Smart Chat</h3>
+                <p>Interact with your documents through an advanced AI chat that understands context and provides precise answers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row text-center mt-5">
+            <div class="col-md-4">
+              <div class="step-circle">1</div>
+              <h5>Upload</h5>
+              <p>Upload your PDF documents to the system</p>
+            </div>
+            <div class="col-md-4">
+              <div class="step-circle">2</div>
+              <h5>Analyze</h5>
+              <p>The system analyzes and processes the content</p>
+            </div>
+            <div class="col-md-4">
+              <div class="step-circle">3</div>
+              <h5>Interact</h5>
+              <p>Chat with your documents and get answers</p>
+            </div>
+          </div>
+        </div>
+		<!-- Profile Section -->
+		<div id="profile-content" class="content-section pt-4">
+		  <h3>Select Simulated User Profile</h3>
+		  <div class="mb-3">
+			<button class="btn btn-outline-primary" data-user="user1">Mario Rossi</button>
+			<button class="btn btn-outline-primary" data-user="user2">Laura Bianchi</button>
+			<button class="btn btn-outline-primary" data-user="user3">Alex Johnson</button>
+		  </div>
+		  <div id="selected-profile" class="border rounded p-3 bg-white" style="min-height:100px;">
+			<em>No profile selected.</em>
+		  </div>
+		</div>
+
+		<div id="feedback-section" class="mt-3" style="display: none;">
+		  <p class="mb-2">Was this explanation helpful?</p>
+		  <button class="btn btn-success me-2" onclick="sendReward(1)">👍 Yes</button>
+		  <button class="btn btn-danger" onclick="sendReward(0)">👎 No</button>
+		</div>
+        <!-- Upload Section -->
+        <div id="upload-content" class="content-section pt-4">
+          <div class="process-map-container">
+            <div class="editor-controls text-center mb-3">
+              <button id="new-session-btn" class="btn btn-success me-2">New Session</button>
+              <small>Current session: <strong><span id="session-id">-</span></strong></small>
+            </div>
+            <div class="mb-3 text-center">
+              <input type="file" id="pdf-input" accept="application/pdf" class="form-control mb-2">
+              <button id="upload-btn" class="btn btn-primary">Upload PDF</button>
+            </div>
+            <div id="files-list">
+              <h5 class="mb-3">Uploaded Files</h5>
+              <div class="table-responsive connection-item">
+                <table class="table table-bordered mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>File Name</th>
+                      <th>Word Count</th>
+                      <th>Unique Words</th>
+                      <th>Average Length</th>
+                      <th>Vocab. Density</th>
+                      <th>Top Words</th>
+                    </tr>
+                  </thead>
+                  <tbody id="files-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+		<!-- Assistant Section -->
+		<div id="assistant-content" class="content-section pt-4">
+		  <div id="assistant-messages" class="chat-container mb-3"></div>
+		  <div class="input-group mb-3">
+			<textarea id="assistant-query" class="form-control" rows="2"
+					  placeholder="Ask your insurance question..."></textarea>
+			<button id="assistant-send" class="btn">Send</button>
+		  </div>
+		  <button id="assistant-reset" class="btn btn-secondary mb-3">Reset Session</button>
+		</div>
+
+		<!-- Process Section -->
+        <div id="process-content" class="content-section pt-4">
+          <div class="process-map-container">
+            <div class="editor-controls text-center mb-3">
+              <h4>Generate Process</h4>
+            </div>
+            <div class="mb-3 text-center">
+              <input
+                type="text"
+                id="process-input"
+                class="form-control mb-2"
+                placeholder="Describe the process to generate…"
+              />
+              <button id="process-btn" class="btn btn-primary">
+                Generate Process
+              </button>
+            </div>
+            
+			<div class="row">
+			  <!-- Colonna visualizzazione grafo -->
+			  <div class="col-md-7">
+				<div class="d-flex justify-content-between align-items-center mb-2">
+				  <h5>Process Visualization</h5>
+
+				</div>
+				<div id="cy" style="height: 500px; border: 1px solid #ccc; border-radius: 8px;"></div>
+								  <div>
+					<button class="btn btn-sm btn-secondary me-1" id="zoom-in">Zoom +</button>
+					<button class="btn btn-sm btn-secondary me-1" id="zoom-out">Zoom -</button>
+					<button class="btn btn-sm btn-secondary" id="reset-zoom">Reset</button>
+				  </div>
+			  </div>
+
+			  <!-- Colonna descrizione testuale -->
+			  <div class="col-md-5">
+			  <div class="d-flex justify-content-between align-items-center mb-2">
+				<h5>Step Descriptions</h5></div>
+				<textarea id="process-description" class="form-control" rows="20" readonly></textarea>
+			  </div>
+			</div>
+          </div>
+        </div>
+	 </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Dagre engine -->
+  <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+  <!-- Cytoscape core -->
+  <script src="https://unpkg.com/cytoscape@3.21.1/dist/cytoscape.min.js"></script>
+  <!-- Cytoscape-Dagre plugin -->
+  <script src="https://unpkg.com/cytoscape-dagre@2.3.0/cytoscape-dagre.js"></script>
+  <!-- Custom Script -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

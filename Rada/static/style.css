@@ -1,0 +1,136 @@
+/* Global */
+body, .main-content {
+  background-color: #f4f4f9;
+  color: #3a007d;
+  font-family: 'Georgia', serif;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: rgb(245, 243, 255);
+}
+.sidebar-container { height: 100vh; }
+.icon { color: #581C87; font-size: 1.2rem; }
+.nav-link {
+  color: #581C87; font-size: 1rem; text-align: left;
+  padding: 0.75rem 1rem; border-radius: 0.5rem;
+  margin: 0.25rem 0; transition: background-color 0.3s, color 0.3s;
+  display: flex; align-items: center;
+}
+.nav-link:hover {
+  background-color: rgba(230, 223, 250, 0.6);
+  color: #581C87; text-decoration: none;
+}
+.nav-link.active {
+  background-color: #7C3AED; color: white !important;
+}
+.nav-link.active .icon { color: white; }
+
+/* Home */
+.logo-container { display:flex; justify-content:center; align-items:center; margin:2rem auto; max-width:400px; padding:1rem; }
+.subtitle { text-align:center; color:#4B5563; font-size:1.5rem; margin-bottom:3rem; }
+.feature-card {
+  background:white; padding:1.5rem; border-radius:0.75rem;
+  box-shadow:0 4px 6px rgba(0,0,0,0.1); margin-bottom:2rem;
+  transition:transform .2s; border:1px solid rgba(124,58,237,0.1);
+}
+.feature-card:hover { transform:translateY(-5px); box-shadow:0 8px 12px rgba(124,58,237,0.1);}
+.step-circle {
+  background:#7C3AED;color:white;width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-weight:bold;
+}
+.content-section { display:none; }
+.content-section.active { display:block; }
+
+/* Upload */
+.process-map-container { border:1px solid #ddd; border-radius:10px; padding:15px; background:#f9f9f9; margin-bottom:2rem; }
+.editor-controls { background:#eef9ff; padding:10px; border-radius:8px; margin-bottom:10px; }
+.connection-item { background:#f0f0f0; padding:8px; border-radius:5px; margin-bottom:5px; }
+
+/* Chat */
+#messages { padding:0; margin:0; height:700px; overflow-y:auto; }
+.chat-container { border:1px solid #ddd; border-radius:10px; padding:15px; background:#fff; margin-bottom:1rem; }
+.chat-message { padding:1.5rem; border-radius:1rem; margin-bottom:1rem; display:flex; align-items:flex-start; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+.chat-message.user { background:#e0d4fc; color:#3a007d; flex-direction:row-reverse; }
+.chat-message.assistant { background:#fff; color:#3a007d; }
+.chat-message .avatar { width:15%; max-width:78px; flex-shrink:0; margin:0 10px; }
+.chat-message .avatar img { width:100%; height:auto; border-radius:50%; object-fit:cover; }
+.chat-message .message { width:85%; padding:0 1.5rem; word-wrap:break-word; font-size:1rem; }
+
+/* Inputs & Buttons */
+#user-input { resize:none; font-family:'Georgia', serif; }
+.btn {
+  background:white; color:#5c2af5; border:2px solid #5c2af5;
+  border-radius:0.5rem; padding:0.5rem 1rem; font-size:1rem;
+  cursor:pointer; transition:background-color .2s, color .2s;
+}
+.btn:hover { background:#5c2af5; color:white; }
+#send-btn, #reset-btn { margin-right:0.5rem; }
+/* Process Tab Styles */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: #581C87;
+}
+
+.tab.active {
+  border-bottom: 2px solid #7C3AED;
+  color: #7C3AED;
+}
+
+.tab:hover:not(.active) {
+  border-bottom: 2px solid #ddd;
+}
+
+#cy {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Node styling */
+.node.beginEnd rect {
+  fill: #d1e7dd !important;
+  stroke: #198754 !important;
+}
+
+.node.mainProcess rect {
+  fill: #cfe2ff !important;
+  stroke: #0d6efd !important;
+}
+
+.node.decision rect, .node.decision polygon {
+  fill: #fff3cd !important;
+  stroke: #ffc107 !important;
+}
+
+.node.criticalNode rect {
+  fill: #f8d7da !important;
+  stroke: #dc3545 !important;
+}
+/* Chat container con altezza fissa e scrolling */
+#assistant-messages {
+  height: 500px;        /* o qualsiasi altezza tu preferisca */
+  overflow-y: auto;
+  padding: 1rem;
+  background: #fff;
+}
+
+/* Assicurati che i messaggi stiano bene all’interno */
+.chat-message {
+  margin-bottom: 0.75rem;
+}
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: .15em;
+}

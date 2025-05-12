@@ -1,0 +1,28 @@
+{
+  "user_id": "user1",
+  "name": "Mario",
+  "surname":"Rossi",
+  "age": 42,
+  "marital_status": "married",
+  "children": 2,
+  "income": 38000,
+  "profession": "bank clerk",
+  "product": {
+    "name": "Travel insurance",
+    "start_year": 2021,
+    "premium_type": "annual",
+    "premium_amount": 3600,
+    "duration_years": 10
+  },
+  "objectives": ["education", "income protection"],
+  "engagement": {
+    "app_usage_freq": "weekly",
+    "prefers_chat": false
+  },
+  "experience": {
+    "years_with_insurance": 5,
+    "risk_profile": "medium"
+  },
+  "preferred_style": "formal",
+  "recent_inquiry_type": "versamento integrativo"
+}
