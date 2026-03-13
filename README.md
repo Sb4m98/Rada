@@ -1,4 +1,3 @@
-```markdown
 # RADA: Insurance Enhanced Learning Intelligent Assistant
 
 **RADA** is an enterprise-grade Retrieval-Augmented Generation (RAG) system tailored for the insurance sector. It provides an advanced document processing pipeline and a conversational interface, enabling stakeholders to extract actionable insights, analyze policies, and map complex workflows using natural language processing.
