@@ -1,102 +1,117 @@
-# RADA - Insurance Enhanced Learning Intelligent Assistant
+```markdown
+# RADA: Insurance Enhanced Learning Intelligent Assistant
 
-**RADA** is an AI-powered document analysis and conversational assistant designed for the insurance domain. It allows users to upload documents, analyze their content, and interact with them through a natural language interface.
-
----
-
-## 🚀 Features
-
-- **📄 Document Analysis**: Upload PDF documents and derive in-depth statistics with Azure Embedding Deployment
-- **💬 Conversational AI**: Engage in natural-language chat with your documents via Azure OpenAI Assistant
-- **🎯 Personalization**: Customize responses using user profiles, powered by Azure Cognitive Search 
-- **🔍 Process Extraction**: Leverage Azure Language Understanding to automatically identify and visualize document workflows  
+**RADA** is an enterprise-grade Retrieval-Augmented Generation (RAG) system tailored for the insurance sector. It provides an advanced document processing pipeline and a conversational interface, enabling stakeholders to extract actionable insights, analyze policies, and map complex workflows using natural language processing.
 
 ---
 
-## 🧠 Architecture
+## Core Capabilities
+
+* **Document Processing Pipeline:** Ingests PDF documents and generates high-dimensional vector embeddings utilizing Azure Embedding models for robust semantic search.
+* **Conversational AI Interface:** Facilitates context-aware, natural-language querying against corporate knowledge bases via Azure OpenAI Assistants.
+* **Contextual Personalization Engine:** Dynamically tailors AI responses based on specific user profiles and historical interactions, integrated with Azure Cognitive Search.
+* **Automated Workflow Extraction:** Employs Azure Conversational Language Understanding (CLU) to identify, extract, and visualize operational processes and intents from unstructured text.
+
+---
+
+## System Architecture
 
 ![Architecture Diagram](docs/architecture.png)
 
----
+### Technology Stack
 
-## 🧩 Key Components
-
-- **Frontend**: HTML/JS interface with Bootstrap styling  
-- **Backend**: Flask server with REST API endpoints  
-- **Vector Database**: [ChromaDB](https://www.trychroma.com/) for document embeddings  
-- **AI Services**:  
-  - GPT-4 for answer generation  
-  - Azure CLU for intent recognition  
-  - Local Personalization Engine to adapt responses to user profiles
+* **Presentation Layer:** HTML5 and JavaScript client, utilizing Bootstrap for responsive UI components.
+* **Application Layer:** Python Flask server exposing a RESTful API architecture.
+* **Data & Persistence Layer:** [ChromaDB](https://www.trychroma.com/) acting as the local vector store for document embeddings and semantic retrieval.
+* **Cognitive Services Integration:**
+    * **LLM Engine:** GPT-4 (via Azure OpenAI) for generative responses and reasoning.
+    * **Intent Recognition:** Azure CLU for semantic parsing and process extraction.
+    * **Personalization:** Custom local engine bridging user metadata with cognitive search results.
 
 ---
 
-## 📈 Workflow
+## Execution Workflow
 
-![Architecture Diagram](docs/workflow.png)
+![Workflow Diagram](docs/workflow.png)
 
 ---
 
-## 💻 Installation
+## Local Development Setup
 
-1. **Clone the repository:**
+To provision the application locally, ensure Python 3.8+ is installed on your environment.
 
+**1. Clone the repository:**
 ```bash
-   git clone https://github.dxc.com/Cloud-ITO/hackathon-2025-policy-gpt-73.git
-   cd hackathon-2025-policy-gpt-73
+git clone [https://github.dxc.com/Cloud-ITO/hackathon-2025-policy-gpt-73.git](https://github.dxc.com/Cloud-ITO/hackathon-2025-policy-gpt-73.git)
+cd hackathon-2025-policy-gpt-73
+
 ```
-2. **Install Python dependencies:**
+
+**2. Install dependencies:**
+It is recommended to use a virtual environment (e.g., `venv` or `conda`).
+
 ```bash
 pip install -r requirements.txt
+
 ```
-3. Run the application
+
+**3. Initialize the application:**
+
 ```bash
 python app.py
+
 ```
-4. Access the app at http://localhost:5000
 
-****
-
----
-## 📡 API Endpoints
-
-| Endpoint                      | Method | Description                       |
-| ----------------------------- | ------ | --------------------------------- |
-| `/api/create_session`         | POST   | Creates a new session             |
-| `/api/upload`                 | POST   | Uploads a PDF file                |
-| `/api/assist`                 | POST   | Answers user questions            |
-| `/api/chat`                   | POST   | Conversational chat endpoint      |
-| `/api/extract_process`        | POST   | Extracts process from documents   |
-| `/api/reset`                  | POST   | Resets a session                  |
----
-## 🖼️ Screenshots
-
-### 1. Home Page
-![Home Page](docs/home.png)
-
-### 2. Profile Sections
-![profile Sections](docs/profile.png)
-
-### 3. Upload PDF Documents
-![Upload PDF](docs/upload.png)
-
-### 4. Chat Interface
-![Chat Interface](docs/chat.png)
-
-### 5. Process Diagram
-![Process Diagram](docs/diagram.png)
+**4. Access the client:**
+Navigate to `http://localhost:5000` in your web browser.
 
 ---
 
-## ⚙️ Configuration
-The application requires the following environment variables:
+## REST API Reference
 
-```bash
-AZURE_OPENAI_ENDPOINT: Azure OpenAI endpoint
-AZURE_OPENAI_API_KEY: Azure OpenAI API key
-AZURE_OPENAI_DEPLOYMENT: Deployment name
-CLU_ENDPOINT: Azure CLU endpoint
-CLU_KEY: Azure CLU key
-CLU_PROJECT: CLU project name
-CLU_DEPLOYMENT: CLU deployment name
+The backend exposes the following endpoints for client-server communication. All POST requests expect a standard JSON payload unless multipart form data is required (e.g., file uploads).
+
+| Endpoint | HTTP Method | Description |
+| --- | --- | --- |
+| `/api/create_session` | POST | Initializes a new stateful interaction session. |
+| `/api/upload` | POST | Ingests a PDF file, triggers the embedding pipeline, and stores vectors. |
+| `/api/assist` | POST | Processes user queries against the document context and returns an answer. |
+| `/api/chat` | POST | Handles multi-turn conversational interactions, maintaining context. |
+| `/api/extract_process` | POST | Analyzes document content to map and output sequential business workflows. |
+| `/api/reset` | POST | Clears the current session state and contextual memory. |
+
+---
+
+## UI Components Overview
+
+The application interface is divided into the following functional modules:
+
+1. **Home Page:** `docs/home.png`
+2. **Profile Management:** `docs/profile.png`
+3. **Document Ingestion Module:** `docs/upload.png`
+4. **Conversational Interface:** `docs/chat.png`
+5. **Workflow Visualization:** `docs/diagram.png`
+
+---
+
+## Environment Configuration
+
+Deployment requires the following environment variables to be explicitly defined. Create a `.env` file in the root directory before execution:
+
+```env
+# Azure OpenAI Configuration
+AZURE_OPENAI_ENDPOINT="<your_azure_openai_endpoint>"
+AZURE_OPENAI_API_KEY="<your_azure_openai_api_key>"
+AZURE_OPENAI_DEPLOYMENT="<your_model_deployment_name>"
+
+# Azure Cognitive Language Understanding (CLU) Configuration
+CLU_ENDPOINT="<your_clu_endpoint>"
+CLU_KEY="<your_clu_key>"
+CLU_PROJECT="<your_clu_project_name>"
+CLU_DEPLOYMENT="<your_clu_deployment_name>"
+
+```
+
+```
+
 ```
